@@ -1,6 +1,8 @@
 import { RegularList } from "./RegularList";
 import { LargePersonListItem } from "./LargePersonListItem";
 import { SmallPersonListItem } from "./SmallPersonListItem";
+import { Modal } from "./Modal";
+import { SplitScreen } from "./SplitScreen";
 
 const people = [
   {
@@ -47,17 +49,17 @@ const products = [
 function App() {
   return (
     <>
-      <RegularList
-        items={people}
-        resourceName="person"
-        itemComponent={LargePersonListItem}
-      />
-	  <hr/>
-      <RegularList
-        items={people}
-        resourceName="person"
-        itemComponent={SmallPersonListItem}
-      />
+      <Modal>
+        {/* <LargePersonListItem person={people[0]}/> */}
+        <SplitScreen>
+          <h1>Left</h1>
+          <RegularList
+            items={people}
+            resourceName="person"
+            itemComponent={SmallPersonListItem}
+          />
+        </SplitScreen>
+      </Modal>
     </>
   );
 }
