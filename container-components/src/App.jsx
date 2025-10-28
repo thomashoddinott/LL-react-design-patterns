@@ -4,6 +4,8 @@ import { UserLoader } from "./UserLoader";
 import { UserInfo } from "./UserInfo";
 import { ResourceLoader } from "./ResourceLoader";
 import { DataLoader } from "./DataLoader";
+import { LocalStorageProvider } from "./LocalStorageProvider";
+import { ChildComponent } from "./ChildComponent";
 
 const getServerData = (url) => async () => {
   const response = await axios.get(url);
@@ -21,8 +23,19 @@ const getTestData = async () => {
 };
 
 function App() {
+  localStorage.setItem(
+    "appData",
+    JSON.stringify({ username: "JohnDoe", age: 30 })
+  );
   return (
     <>
+      <h3>Challenge</h3>
+
+      <LocalStorageProvider>
+        <ChildComponent />
+      </LocalStorageProvider>
+
+      <h3>/Challenge</h3>
       <UserLoader userId="123">
         <UserInfo />
       </UserLoader>
