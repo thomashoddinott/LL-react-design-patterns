@@ -6,3 +6,9 @@ General definition of design patterns:
 **Layout Components:**
 
 In a nutshell, separate layout from content
+
+**Container Components:**
+
+Let the container load the data (axios) and pass it to child components. 
+
+Our components shouldn't know where their data is coming from.
