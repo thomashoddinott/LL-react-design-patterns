@@ -13,4 +13,11 @@ export const CurrentUserInfo = () => {
   }, []);
 
   return user && <UserInfo user={user} />;
+
+  // Better =>
+  // return (
+  //   <CurrentUserLoader>
+  //     <UserInfo></UserInfo>
+  //   </CurrentUserLoader>
+  // )
 };
