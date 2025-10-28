@@ -1,16 +1,17 @@
 import { UserLoader } from "./UserLoader";
 import { UserInfo } from "./UserInfo";
+import { ResourceLoader } from "./ResourceLoader";
 
 function App() {
   return (
     <>
-      <UserLoader userId="234">
+      <UserLoader userId="345">
         <UserInfo />
       </UserLoader>
       <hr />
-      <UserLoader userId="123">
+      <ResourceLoader resourceUrl={`/api/users/345`} resourceName="user">
         <UserInfo />
-      </UserLoader>
+      </ResourceLoader>
     </>
   );
 }
