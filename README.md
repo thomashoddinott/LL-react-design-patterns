@@ -21,3 +21,15 @@ Components that do not keep track of their own state--all states pass in as prop
 
 Generally, we prefer controlled components => more reusable/testable
 
+**Higher-order components**
+
+Components that return another component instead of JSX ==> the other component returns JSX.
+
+Used to share complex behaviour between multiple components.
+
+Add extra functionality to existing components.
+
+
+
+
+
