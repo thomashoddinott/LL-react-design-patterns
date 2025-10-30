@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-export const UserInfo = ({ user }) => {
+import { inLayout } from "./InLayout";
+
+export const UserInfo = inLayout(({ user }) => {
   const { name, age, hairColor, hobbies } = user;
 
   return (
@@ -15,4 +17,4 @@ export const UserInfo = ({ user }) => {
       </ul>
     </>
   );
-};
+});
