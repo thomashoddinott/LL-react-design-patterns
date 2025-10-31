@@ -29,7 +29,13 @@ Used to share complex behaviour between multiple components.
 
 Add extra functionality to existing components.
 
+**Custom Hooks**
 
+Special hooks that usually combine functionality of one or more existing "useState" or "useEffect" hooks. 
+
+n.b. hooks have to start with "use<Hookname>"
+
+Custom Hooks have a major downside, they reduce component re-usability, hence the need for HOCs, container components, and so on.
 
 
 
