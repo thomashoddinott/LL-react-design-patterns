@@ -37,5 +37,17 @@ n.b. hooks have to start with "use<Hookname>"
 
 Custom Hooks have a major downside, they reduce component re-usability, hence the need for HOCs, container components, and so on.
 
+**Functional Programming (In React)**
 
+Stuff we've seen:
+
+- Controlled components
+- Components in React are functions (nowadays)
+- Higher-order components (passing and returning components is very functional)
+
+To come:
+
+- Recursive components
+- Partially applied components
+- Component composition
 
