@@ -1,8 +1,9 @@
-import { useCurrentUser } from "./useCurrentUser";
-
 /* eslint-disable react/prop-types */
-export const UserInfo = () => {
-  const { isLoading, user } = useCurrentUser();
+
+import { useUser } from "./useUser";
+
+export const UserInfo = ({ userId }) => {
+  const { isLoading, user } = useUser(userId);
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -10,6 +11,8 @@ export const UserInfo = () => {
 
   return (
     <>
+      <h3>{userId}</h3>
+      {/* ^ for demo only */}
       <h3>{name}</h3>
       <p>Age: {age} years</p>
       <p>Hair Color: {hairColor}</p>
