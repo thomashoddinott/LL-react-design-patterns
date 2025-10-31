@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
+import { useResource } from "./useResource";
 
 export const useUser = (userId) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(null);
-
-  // mocking http call passing `userId`
-  useEffect(() => {
-    const loadedUser = {
-      id: userId,
-      name: "John Doe",
-      age: 54,
-      hairColor: "brown",
-      hobbies: ["swimming", "kayaking", "vigilantism"],
-    };
-    setUser(loadedUser);
-    setIsLoading(false);
-  }, []);
-
+  const { isLoading, data: user } = useResource("/users/" + userId);
   return { isLoading, user };
 };
+
+// // i.e. useProduct.js or change this file name.. `useData..?`
+// export const useProduct = (productId) => {
+//   const { isLoading, data: product } = useResource("/products/" + productId);
+//   return { isLoading, product };
+// };
