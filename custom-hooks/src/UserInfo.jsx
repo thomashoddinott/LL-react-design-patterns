@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
 
-import { useUser } from "./useUser";
+import { useResource } from "./useResource";
+// import { useUser } from "./useUser";
 
 export const UserInfo = ({ userId }) => {
-  const { isLoading, user } = useUser(userId);
+  // const { isLoading, user } = useUser(userId);
+  const { isLoading, data } = useResource("/users/123", {});
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  const { name, age, hairColor, hobbies } = user;
+  const { name, age, hairColor, hobbies } = data;
 
   return (
     <>
