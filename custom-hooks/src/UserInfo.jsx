@@ -1,16 +1,32 @@
 /* eslint-disable react/prop-types */
 
-import { useResource } from "./useResource";
+import { useCallback } from "react";
+import { useDataSource } from "./useDataSource";
+// import { useResource } from "./useResource";
 // import { useUser } from "./useUser";
+
+const loadUser = async (userId) => {
+  console.log("Loading user from server...");
+  const loadedUser = {
+    id: userId,
+    name: "John Doe",
+    age: 54,
+    hairColor: "brown",
+    hobbies: ["swimming", "kayaking", "vigilantism"],
+  };
+  return loadedUser;
+};
 
 export const UserInfo = ({ userId }) => {
   // const { isLoading, user } = useUser(userId);
-  const { isLoading, data } = useResource("/users/123", {});
+  const loadUserWithId = useCallback(() => loadUser(userId), [userId]);
+  // ^ starting to get complicated but worth the effort
+  const { isLoading, data: user } = useDataSource(loadUserWithId);
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  const { name, age, hairColor, hobbies } = data;
+  const { name, age, hairColor, hobbies } = user;
 
   return (
     <>
