@@ -1,30 +1,39 @@
-import { RecursiveComponent } from "../RecurisveComponent";
-
-// can't use .map or a for-loop here..
-const nestedObject = {
-  a: 1,
-  b: {
-    b1: 4,
-    b2: {
-      b23: "Hello",
-    },
-    b3: {
-      b31: {
-        message: "Hi",
-      },
-      b32: {
-        message: "Hi",
-      },
-    },
-  },
-  c: {
-    c1: 2,
-    c2: 3,
-  },
-};
+import { Card, CardBody, CardFooter, CardHeader } from "../Composition";
 
 function App() {
-  return <RecursiveComponent data={nestedObject} />;
+  return (
+    <>
+      <Card>
+        <CardHeader title="Card 1" />
+        <CardBody>
+          <p>This is the card content</p>
+        </CardBody>
+        <CardFooter>
+          <p>A footer</p>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardBody>
+          <p>This is the card content</p>
+        </CardBody>
+      </Card>
+
+      <Card>
+        <CardHeader title="Card 2" />
+        <CardBody>
+          <p>This is the card content</p>
+        </CardBody>
+        <CardFooter>
+          <p>A footer</p>
+        </CardFooter>
+      </Card>
+      <Card>
+        <CardBody>
+          <p>This is the card content</p>
+        </CardBody>
+      </Card>
+    </>
+  );
 }
 
 export default App;
